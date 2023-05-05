@@ -575,6 +575,8 @@ print("The fraction of sad tweets is:", sad_fraction)
 sentiment_score = happy_fraction - sad_fraction
 print("The sentiment score for the given tweets is", sentiment_score)
 
+'this is a example menssage for get the commit'
+
 
 
 
