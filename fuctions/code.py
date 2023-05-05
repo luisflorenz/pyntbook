@@ -525,31 +525,50 @@ for word in happy_words:
         # Word found! Mark the tweet as happy
         is_tweet_happy = True
 
-print(is_tweet_happy)    
+print(is_tweet_happy)   
 
-number_of_happy_tweets = len(happy_words)
+'Determine the number of tweets in the dataset that can be classified as happy'
+
+cont = 0
 
 for words in tweets:
-    words =  number_of_happy_tweets
-print("Number of happy tweets:", number_of_happy_tweets)      
+    words= words.rstrip()
+    #print(words)
+    if  words == happy_words:
+        continue
+    print(words)
+    word= words.split()
+    tot= len(word)
+    number_of_happy_tweets= cont + tot
+print('the total of happy tweets are: ', number_of_happy_tweets)    
+
+    
+   
 
 ' What fraction of the total number of tweets are happy?'
-happy_fraction = len(happy_words)/10
+
+happy_fraction = number_of_happy_tweets/10
 print("The fraction of happy tweets is:", happy_fraction)
 
 'Determine the number of tweets in the dataset that can be classified as sad.'
 
-# store the final answer in this variable
-number_of_sad_tweets = len(sad_words)
+number_of_sad_tweets = 0
+is_tweet_sad = False
 
-# perform the calculations here
-for words in tweets:
-    words = number_of_sad_tweets 
-print("Number of sad tweets:", number_of_sad_tweets)   
+for st in tweets:
+    for word in sad_words:
+        if word in st:
+            is_tweet_sad = True
+            if is_tweet_sad == True:
+                number_of_sad_tweets += 1
+                
+print('the total of sad tweets are: ', number_of_sad_tweets) 
+
+
 
 'What fraction of the total number of tweets are sad?'
 
-sad_fraction = len(sad_words)/10
+sad_fraction = number_of_sad_tweets/10
 print("The fraction of sad tweets is:", sad_fraction)
 
 ' Calculate the sentiment score, which is defined as the difference betweek the fraction of happy tweets and the fraction of sad tweets.'
